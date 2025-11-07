@@ -1,0 +1,22 @@
+# 1) build image (if not already)
+sudo docker build -t ccccctf11-25 .
+
+# 2) remove any old container with that name (safe)
+sudo docker rm -f ccccctf11-25-app 2>/dev/null || true
+
+# 3) run container persistent after reboot & persist DB on host
+sudo docker run -d \
+  --name ccccctf11-25-app \
+  --restart unless-stopped \
+  -p 3000:3000 \
+  -v "$(pwd)/database.db:/app/database.db" \
+  ccccctf11-25
+
+
+
+
+sudo apt install docker.io
+gdb debugger
+
+https://github.com/joshkimchifriedrice/CCCnetExploitCTF11-25.git
+
