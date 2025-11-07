@@ -1,0 +1,20 @@
+[Unit]
+Description=Scoring Engine (Flask)
+After=network.target
+
+[Service]
+User=scorer
+Group=scorer
+WorkingDirectory=/home/scorer/score-server
+ExecStart=/home/scorer/score-server/score/bin/python /home/scorer/score-server/app.py
+Restart=on-failure
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+
+
